@@ -18,7 +18,7 @@ try:
                                 last_name varchar,
                                 company_name varchar,
                                 address varchar,
-                                city varchar,
+                                city varchar,|
                                 state varchar,
                                 zip varchar,
                                 phone1 varchar,
