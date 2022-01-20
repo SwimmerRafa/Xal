@@ -10,7 +10,7 @@ cur = conn.cursor()
 try:
     cur.execute(
         '''
-        CREATE TABLE customer (cust_id integer primary key,
+        CREATE TABLE customer (cust_id varchar primary key,
                                 first_name varchar,
                                 last_name varchar,
                                 company_name varchar,
@@ -28,7 +28,7 @@ except:
 try:
     cur.execute(
         '''
-        CREATE TABLE dept (dept_id integer primary key, department varchar);
+        CREATE TABLE dept (dept_id varchar primary key, department varchar);
         ''')
 except:
     print("Department table already exists...")
@@ -36,8 +36,8 @@ except:
 try:
     cur.execute(
         '''
-        CREATE TABLE cust_dept (cust_id integer references customer(cust_id), 
-                                dept_id integer references dept(dept_id));
+        CREATE TABLE cust_dept (cust_id varchar references customer(cust_id), 
+                                dept_id varchar references dept(dept_id));
         ''')
 except:
     print("Cust_Dept table already exists...")

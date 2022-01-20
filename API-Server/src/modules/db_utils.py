@@ -50,10 +50,10 @@ class DB_API:
         dict_args = {key:str() for key in client_attr}
         for key, values in args: dict_args[key] = values[0]
 
-        query = f'''INSERT INTO customer(cust_id,first_name,last_name,company_name,address,city,state,zip,phone1,phone2,email)
-                    VALUES ({dict_args['cust_id']},{dict_args['first_name']},{dict_args['last_name']},{dict_args['company_name']},
-                    {dict_args['address']},{dict_args['city']},{dict_args['state']},{dict_args['zip']},{dict_args['phone1']},{dict_args['phone2']},{dict_args['email']})
-                '''
+        query = f"""INSERT INTO customer(cust_id,first_name,last_name,company_name,address,city,state,zip,phone1,phone2,email)
+                    VALUES ('{dict_args["cust_id"]}','{dict_args["first_name"]}','{dict_args['last_name']}','{dict_args["company_name"]}',
+                    '{dict_args["address"]}','{dict_args["city"]}','{dict_args["state"]}','{dict_args["zip"]}','{dict_args["phone1"]}','{dict_args["phone2"]}','"Error on request (bad column name)", 400')
+                """
         if len(dict_args['state']) == 2 and dict_args['state'].isalpha() and dict_args['state'].isupper():
             self.cur.execute(query)
             return dumps(dict_args, indent=4), 200
