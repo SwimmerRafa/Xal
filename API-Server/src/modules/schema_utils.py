@@ -7,9 +7,6 @@ conn.autocommit = True
 
 cur = conn.cursor()
 
-cur.execute('DROP DATABASE IF EXISTS postgres')
-cur.execute('CREATE DATABASE postgres')   
-
 try:
     cur.execute(
         '''
@@ -18,7 +15,7 @@ try:
                                 last_name varchar,
                                 company_name varchar,
                                 address varchar,
-                                city varchar,|
+                                city varchar,
                                 state varchar,
                                 zip varchar,
                                 phone1 varchar,
