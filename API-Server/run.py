@@ -1,12 +1,4 @@
-from flask import Flask
-from flask import jsonify
-import pandas as pd
-
-def create_app(environment):
-    app = Flask(__name__)
-    return app
-
-app = create_app()
+from src.webapp import app
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
